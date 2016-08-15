@@ -1,6 +1,3 @@
-stock_prices_yesterday = [10, 7, 5, 4, 11, 2]
-
-# returns 6 (buying for $5 and selling for $11)
 def get_max_profit(stock_prices_yesterday):
     min_price = max_price = None
     profit = max_profit = None
@@ -22,5 +19,3 @@ def get_max_profit(stock_prices_yesterday):
             max_price = None
 
     return max_profit
-
-print(get_max_profit(stock_prices_yesterday=stock_prices_yesterday))
