@@ -9,6 +9,9 @@ def sort_high_to_low(integers):
             result = [integers[i]]
             continue
         for j in range(len(result)):
+            if integers[i] <= result[len(result)-1]:
+                result += integers[i:i+1]
+                break
             if integers[i] > result[j]:
                 result = result[0:j] + integers[i:i+1] + result[j:]
                 break

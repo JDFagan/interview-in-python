@@ -7,6 +7,11 @@ def test_sort1():
     assert sort_high_to_low(integers=ints) == [4, 3, 2, 1]
 
 
+def test_sort2():
+    ints = [-10, -10, 1, 3, 2]
+    assert sort_high_to_low(integers=ints) == [3, 2, 1, -10, -10]
+
+
 def test_1():
     ints = [1, 2, 3, 4]
     assert get_highest_product(integers=ints) == 4*3*2
@@ -25,6 +30,11 @@ def test_3():
 def test_4():
     ints = [7, 3, 4]
     assert get_highest_product(integers=ints) == 7*3*4
+
+
+def test_negatives():
+    ints = [-10, -10, 1, 3, 2]
+    assert get_highest_product(integers=ints) == -10*-10*3
 
 
 def test_zeroes():
