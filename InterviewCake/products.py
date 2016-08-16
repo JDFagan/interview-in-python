@@ -8,7 +8,7 @@ def get_products_of_all_ints_except_at_index(integers):
     if len(integers) == 1:
         return [None]
 
-    # Initialize  list of products
+    # Initialize list of products
     products = [None] * len(integers)
 
     # Reduce solution requiring O(n) time and O(n) space
