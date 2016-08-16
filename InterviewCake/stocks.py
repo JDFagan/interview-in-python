@@ -1,4 +1,8 @@
 def get_max_profit(stock_prices_yesterday):
+    # make sure we have at least 2 prices
+    if len(stock_prices_yesterday) < 2:
+        raise IndexError('Getting a profit requires at least 2 prices')
+
     min_price = max_price = None
     profit = max_profit = None
     for i in range(len(stock_prices_yesterday)):

@@ -1,5 +1,5 @@
 import InterviewCake.stocks as stocks
-
+import pytest
 
 def test_1():
     prices = [10, 7, 5, 8, 11, 9]
@@ -24,3 +24,15 @@ def test_falling_prices():
 def test_falling_prices2():
     prices = [10, 8, 5, 1]
     assert stocks.get_max_profit(stock_prices_yesterday=prices) == -2
+
+
+def test_one_price():
+    with pytest.raises(IndexError):
+        prices = [10]
+        stocks.get_max_profit(stock_prices_yesterday=prices)
+
+
+def test_no_price():
+    with pytest.raises(IndexError):
+        prices = []
+        stocks.get_max_profit(stock_prices_yesterday=prices)
