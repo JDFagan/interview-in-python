@@ -1,3 +1,6 @@
+from functools import reduce # Valid in Python 2.6+, required in Python 3
+# import operator
+
 def get_products_of_all_ints_except_at_index(integers):
     # Handle edge cases
     if len(integers) < 1:
@@ -5,13 +8,13 @@ def get_products_of_all_ints_except_at_index(integers):
     if len(integers) == 1:
         return [None]
 
-    # Initialize empty list of products
-    products = [1] * len(integers)
+    # Initialize  list of products
+    products = [None] * len(integers)
 
-    # Brute force solution requiring O(n^2) time and O(n) space
+    # Reduce solution requiring O(n) time and O(n) space
     for i in range(len(integers)):
-        for j in range(len(integers)):
-            if j != i:
-                products[i] = products[i]*integers[j]
+        left = integers[:i]
+        right = integers[i + 1:]
+        products[i] = reduce(lambda x, y: x*y, left + right)
 
     return products
