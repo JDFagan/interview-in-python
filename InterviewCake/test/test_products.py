@@ -1,6 +1,7 @@
 from InterviewCake.products import get_products_of_all_ints_except_at_index
 import pytest
 
+
 def test_1():
     ints = [1, 7, 3, 4]
     assert get_products_of_all_ints_except_at_index(integers=ints) == [84, 12, 28, 21]

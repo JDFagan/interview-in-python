@@ -1,6 +1,7 @@
 from InterviewCake.stocks import get_max_profit
 import pytest
 
+
 def test_1():
     prices = [10, 7, 5, 8, 11, 9]
     assert get_max_profit(stock_prices_yesterday=prices) == 6
