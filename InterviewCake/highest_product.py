@@ -24,41 +24,25 @@ def sort_high_to_low(integers):
 def get_highest_product(integers):
     if len(integers) < 3:
         raise IndexError("Input integers needs to be at least three integers")
-    if len(integers) == 3:
-        return reduce(lambda x, y: x*y, integers)
 
-    highest = lowest = highest_product_of_2 = lowest_product_of_2 = highest_product_of_3 = None
-    for i in range(len(integers)):
-        if highest is None:
-            highest = lowest = integers[i]
-            continue
-        else:
-            if highest_product_of_2 is None:
-                highest_product_of_2 = lowest_product_of_2 = reduce(lambda x, y: x*y, integers[:2])
-            else:
-                if highest_product_of_3 is None:
-                    highest_product_of_3 = reduce(lambda x, y: x * y, integers[:3])
-                else:
-                    # High Product of 3
-                    if integers[i] * highest_product_of_2 > highest_product_of_3:
-                        highest_product_of_3 = integers[i] * highest_product_of_2
-                    if integers[i] * lowest_product_of_2 > highest_product_of_3:
-                        highest_product_of_3 = integers[i] * highest_product_of_2
+    highest = max(integers[:2])
+    lowest = min(integers[:2])
+    highest_product_of_2 = lowest_product_of_2 = reduce(lambda x, y: x * y, integers[:2])
+    highest_product_of_3 = reduce(lambda x, y: x * y, integers[:3])
 
-                # High/Low Product of 2
-                if integers[i] * highest > highest_product_of_2:
-                    highest_product_of_2 = integers[i] * highest
-                if integers[i] * lowest > highest_product_of_2:
-                    highest_product_of_2 = integers[i] * lowest
-                if integers[i] * lowest < lowest_product_of_2:
-                    lowest_product_of_2 = integers[i] * lowest
-                if integers[i] * highest < lowest_product_of_2:
-                    lowest_product_of_2 = integers[i] * highest
+    for current in integers[2:]:
+        highest_product_of_3 = max(highest_product_of_3
+                                   , current*highest_product_of_2
+                                   , current*lowest_product_of_2)
 
-        # Highest/Lowest
-        if integers[i] > highest:
-            highest = integers[i]
-        if integers[i] < lowest:
-            lowest = integers[i]
+        highest_product_of_2 = max(highest_product_of_2
+                                   , current*highest
+                                   , current*lowest)
+        lowest_product_of_2 = min(lowest_product_of_2
+                                  , current*highest
+                                  , current*lowest)
+
+        highest = max(highest, current)
+        lowest = min(lowest, current)
 
     return highest_product_of_3
