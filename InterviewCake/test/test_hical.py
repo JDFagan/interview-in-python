@@ -12,6 +12,21 @@ def test_hical2():
     assert condense_meeting_times(meetings=meetings) == [(0, 1), (3, 6), (7, 8), (9, 12)]
 
 
+def test_hical3():
+    meetings = [(1, 2), (2, 3)]
+    assert condense_meeting_times(meetings=meetings) == [(1, 3)]
+
+
+def test_hical4():
+    meetings = [(1, 5), (2, 3)]
+    assert condense_meeting_times(meetings=meetings) == [(1, 5)]
+
+
+def test_hical5():
+    meetings = [(1, 10), (2, 6), (3, 5), (7, 9)]
+    assert condense_meeting_times(meetings=meetings) == [(1, 10)]
+
+
 def test_three_meetings():
     meetings = [(1, 2), (5, 8), (0, 9)]
     assert condense_meeting_times(meetings=meetings) == [(0, 9)]
