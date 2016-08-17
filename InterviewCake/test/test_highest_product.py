@@ -12,6 +12,11 @@ def test_sort2():
     assert sort_high_to_low(integers=ints) == [3, 2, 1, -10, -10]
 
 
+def test_sort3():
+    ints = [-10, 100, 1, 3, 2, 22, -15, 8, 5, 77, 23]
+    assert sort_high_to_low(integers=ints) == [100, 77, 23, 22, 8, 5, 3, 2, 1, -10, -15]
+
+
 def test_1():
     ints = [1, 2, 3, 4]
     assert get_highest_product(integers=ints) == 4*3*2
