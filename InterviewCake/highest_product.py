@@ -48,8 +48,12 @@ def get_highest_product(integers):
                 # High/Low Product of 2
                 if integers[i] * highest > highest_product_of_2:
                     highest_product_of_2 = integers[i] * highest
+                if integers[i] * lowest > highest_product_of_2:
+                    highest_product_of_2 = integers[i] * lowest
                 if integers[i] * lowest < lowest_product_of_2:
                     lowest_product_of_2 = integers[i] * lowest
+                if integers[i] * highest < lowest_product_of_2:
+                    lowest_product_of_2 = integers[i] * highest
 
         # Highest/Lowest
         if integers[i] > highest:
