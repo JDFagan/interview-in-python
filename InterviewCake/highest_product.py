@@ -27,5 +27,34 @@ def get_highest_product(integers):
     if len(integers) == 3:
         return reduce(lambda x, y: x*y, integers)
 
-    high_to_low_integers = sort_high_to_low(integers)
-    return reduce(lambda x, y: x*y, high_to_low_integers[:3])
+    highest = lowest = highest_product_of_2 = lowest_product_of_2 = highest_product_of_3 = None
+    for i in range(len(integers)):
+        if highest is None:
+            highest = lowest = integers[i]
+            continue
+        else:
+            if highest_product_of_2 is None:
+                highest_product_of_2 = lowest_product_of_2 = reduce(lambda x, y: x*y, integers[:2])
+            else:
+                if highest_product_of_3 is None:
+                    highest_product_of_3 = reduce(lambda x, y: x * y, integers[:3])
+                else:
+                    # High Product of 3
+                    if integers[i] * highest_product_of_2 > highest_product_of_3:
+                        highest_product_of_3 = integers[i] * highest_product_of_2
+                    if integers[i] * lowest_product_of_2 > highest_product_of_3:
+                        highest_product_of_3 = integers[i] * highest_product_of_2
+
+                # High/Low Product of 2
+                if integers[i] * highest > highest_product_of_2:
+                    highest_product_of_2 = integers[i] * highest
+                if integers[i] * lowest < lowest_product_of_2:
+                    lowest_product_of_2 = integers[i] * lowest
+
+        # Highest/Lowest
+        if integers[i] > highest:
+            highest = integers[i]
+        if integers[i] < lowest:
+            lowest = integers[i]
+
+    return highest_product_of_3

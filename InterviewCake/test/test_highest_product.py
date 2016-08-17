@@ -37,6 +37,16 @@ def test_negatives():
     assert get_highest_product(integers=ints) == -10*-10*3
 
 
+def test_negatives2():
+    ints = [10, -10, 1, 3, 2]
+    assert get_highest_product(integers=ints) == 10*3*2
+
+
+def test_negatives3():
+    ints = [1, 10, -5, 1, -100]
+    assert get_highest_product(integers=ints) == -100*-5*10
+
+
 def test_zeroes():
     ints = [0, 0, 0]
     assert get_highest_product(integers=ints) == 0
