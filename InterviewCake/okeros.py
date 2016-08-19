@@ -1,4 +1,4 @@
-# O(1) time and O(n) space
+# O(1) time and O(1) space
 def get_rectangular_intersection(r1: dict, r2: dict):
     if {'left_x', 'bottom_y', 'width', 'height'} != r1.keys() or r1.keys() != r2.keys():
         raise TypeError("Rectangle dictionary input(s) not to specification")
