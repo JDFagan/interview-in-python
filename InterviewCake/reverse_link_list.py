@@ -1,35 +1,28 @@
-class LinkedListNode:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-    def __lt__(self, other):
-        return self.value < other.value
-
-    def __le__(self, other):
-        return self.value <= other.value
-
-    def __eq__(self, other):
-        return self.value == other.value
-
-    def __ne__(self, other):
-        return self.value != other.value
-
-    def __gt__(self, other):
-        return self.value > other.value
-
-    def __ge__(self, other):
-        return self.value >= other.value
+from InterviewCake.linked_list import *
+from copy import deepcopy
 
 
 # O(n) time and O(1) space
 def reverse_link_list(head: LinkedListNode):
     prev = None
 
-    while head is not None:
+    while head:
         next = head.next
         head.next = prev
         prev = head
         head = next
+
+    return prev
+
+
+def reverse_link_list_out_of_place(head: LinkedListNode):
+    current = deepcopy(head)
+    prev = None
+
+    while current:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
 
     return prev

@@ -39,3 +39,19 @@ def test_one_element():
 
 def test_no_elements():
     assert reverse_link_list(None) is None
+
+
+def test_reverse_out_of_place():
+    n1 = LinkedListNode(1)
+    n2 = LinkedListNode(2)
+    n3 = LinkedListNode(3)
+    n1.next = n2
+    n2.next = n3
+
+    r1 = LinkedListNode(1)
+    r2 = LinkedListNode(2)
+    r3 = LinkedListNode(3)
+    r3.next = r2
+    r2.next = r1
+
+    assert reverse_link_list_out_of_place(n1) == r3
