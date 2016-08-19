@@ -3,12 +3,12 @@ import pytest
 
 
 def test_coins1():
-    amount = 5
+    amount = 4
     coins = [1, 2, 3]
     result = [
-        [3]*1, [2]*2
-        , [2]*2, [1]*1
-        , [1]*5
+        [3]*1, [1]*1
+        , [2]*2
+        , [1]*4
     ]
     assert get_coin_combos(amount=amount, coins=coins) == len(result)
 

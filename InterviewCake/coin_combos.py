@@ -51,21 +51,3 @@ def change_possibilities_top_down(amount_left, denominations_left):
         # print(str.format("({}): checking ways to make {} with {}", num_possibilities, amount_left, denominations_left))
 
     return num_possibilities
-
-
-def get_coin_combos2(amount, coins):
-    result = []
-    divisables = {}
-    lessers = {}
-
-    # O(n) time
-    for coin in coins:
-        if coin > amount:
-            continue
-
-        if amount % coin:
-            divisables[coin] = amount/coin
-        elif coin < amount:
-            lessers[coin] = amount//coin
-
-    return len(divisables)
