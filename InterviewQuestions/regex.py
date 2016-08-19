@@ -1,12 +1,17 @@
 # aabbbbbbbbcde aab*.de == True
-def match(str, regex):
+def match(string, regex):
     result = True
+    prev = None
 
-    for s in range(len(str)):
-        for r in range(len(regex)):
-            if str[s] == regex[r]:
-                continue
+    s = r = 0
+    while s <= len(string) - 1 and r <= len(regex) - 1:
+        if string[s] == regex[r]:
+            s += 1
+            r += 1
+        # elif regex[r] == '.':
+        #     r += 1
+        #     pass
+
+        prev = r
 
     return result
-
-assert match('abc', 'abc') == True
