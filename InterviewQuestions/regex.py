@@ -1,4 +1,3 @@
-# aabbbbbbbbcde aab*.de == True
 def match(string, regex):
     result = True
     prev = None
@@ -20,10 +19,10 @@ def match(string, regex):
             prev = r
             r += 1
         else:
-            result = False
-            break
+            # Short circuit - for sure not a match
+            return False
 
-    if result and (s != len(string) or r != len(string)):
+    if result and (s != len(string) or r != len(regex)):
         if s == len(string) and r == len(regex) - 1 and regex[r] == '*':
             result = True
         else:

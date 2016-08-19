@@ -11,3 +11,11 @@ def test_regex2():
 
 def test_regex3():
     assert match('abcccc', 'a.c*')
+
+
+def test_regex4():
+    assert not match('abccccd', 'a.c*')
+
+
+def test_regex4():
+    assert match('abccccd', 'a.c*d')
