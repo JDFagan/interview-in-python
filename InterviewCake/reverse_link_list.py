@@ -32,19 +32,3 @@ def reverse_link_list(head: LinkedListNode):
         head = next
 
     return prev
-
-#
-# def reverse_link_list2(head: LinkedListNode):
-#     if head is None:
-#         return head
-#
-#     next = head.next
-#
-#     prev = head
-#     next = reverse_link_list(head.next)
-#     if head is None:
-#         head = prev
-#     else:
-#         head.next = prev
-#
-#     return head
