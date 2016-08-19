@@ -5,13 +5,25 @@ def match(string, regex):
 
     s = r = 0
     while s <= len(string) - 1 and r <= len(regex) - 1:
-        if string[s] == regex[r]:
+        if regex[r] == '.':
             s += 1
+            prev = r
             r += 1
-        # elif regex[r] == '.':
-        #     r += 1
-        #     pass
+        elif regex[r] == '*':
+            if string[s] == regex[prev]:
+                s += 1
+            else:
+                prev = r
+                r += 1
+        elif string[s] == regex[r]:
+            s += 1
+            prev = r
+            r += 1
+        else:
+            result = False
+            break
 
-        prev = r
+    if result and (s != len(string) or r != len(string)):
+        result = False
 
     return result
