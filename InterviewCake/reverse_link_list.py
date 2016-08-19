@@ -22,6 +22,7 @@ class LinkedListNode:
         return self.value >= other.value
 
 
+# O(n) time and O(1) space
 def reverse_link_list(head: LinkedListNode):
     prev = None
 
