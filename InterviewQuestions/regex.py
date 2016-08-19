@@ -24,6 +24,9 @@ def match(string, regex):
             break
 
     if result and (s != len(string) or r != len(string)):
-        result = False
+        if s == len(string) and r == len(regex) - 1 and regex[r] == '*':
+            result = True
+        else:
+            result = False
 
     return result
