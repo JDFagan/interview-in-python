@@ -2,8 +2,8 @@ from InterviewCake.binary_tree import *
 
 
 def largest(node):
-    if node.right:
-        return largest(node.right)
+    while node.right:
+        node = node.right
     return node
 
 
