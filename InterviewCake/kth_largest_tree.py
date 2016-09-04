@@ -8,9 +8,6 @@ def largest(node):
 
 
 def second_largest(node):
-    if node is None or (node.right is None and node.left is None):
-        return None
-
     prev_largest = None
     while node:
         if node.right:
