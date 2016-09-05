@@ -1,3 +1,5 @@
+# Modified version of binary search to find rotation point
+# O(log(n)) time and O(1) space
 def find_rotation_point(words):
     # return index of rotation point of alphabetically sorted list
 
