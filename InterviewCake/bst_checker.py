@@ -9,14 +9,14 @@ def largest(node):
 
 # O(n) time and O(h) space where h is height of tree
 def is_binary_search_tree(node):
-    if node is None:
+    if not node:
         return True
-    if node.left is None:
-        if node.right is None:
+    if not node.left:
+        if not node.right:
             return True
         return node.value < node.right.value and node.value < largest(node.right).value \
                 and is_binary_search_tree(node.right)
-    elif node.right is None:
+    elif not node.right:
         return node.value > node.left.value and node.value > largest(node.left).value \
                 and is_binary_search_tree(node.left)
 
