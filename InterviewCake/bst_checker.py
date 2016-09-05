@@ -7,6 +7,7 @@ def largest(node):
     return node
 
 
+# Use depth-first search testing for validity for each node as we go
 # O(n) time and O(h) space where h is height of tree
 def is_binary_search_tree(node):
     if not node:
