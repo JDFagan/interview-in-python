@@ -1,10 +1,9 @@
 # Not great recursive solution: O(2^n) time and O(2^n) space
-def fib(n):
+def fib_recursive(n):
     if n < 0:
         raise IndexError("No such valid Fibonacci value for negative number")
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
+    if n in [0, 1]:
+        return n
 
-    return fib(n-2) + fib(n-1)
+    print("computing fib_recursive({})".format(n))
+    return fib_recursive(n - 2) + fib_recursive(n - 1)
