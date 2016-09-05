@@ -1,19 +1,25 @@
-# Insert: O(n) time and O(n) space
-# Getters: O(1) time
 class TempTracker:
+    # Insert: O(1) time and O(1) space
+    # Getters: O(1) time
+
     def __init__(self):
-        self.temps = []
+        self.sum = 0
+        self.count = 0
         self.temps_histogram = dict()
+
         self.max = None
         self.min = None
         self.mean = None
         self.mode = None
 
     def insert(self, temp):
-        self.temps.append(temp)
         self.max = temp if self.max is None else max(self.max, temp)
         self.min = temp if self.min is None else min(self.min, temp)
-        self.mean = temp if self.mean is None else sum(self.temps)/len(self.temps)
+
+        # Track the mean
+        self.sum += temp
+        self.count += 1
+        self.mean = temp if self.mean is None else self.sum/self.count
 
         # Track the mode
         if temp in self.temps_histogram:
