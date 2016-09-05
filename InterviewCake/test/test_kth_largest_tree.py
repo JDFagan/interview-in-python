@@ -3,11 +3,15 @@ from InterviewCake.kth_largest_tree import *
 
 def test_no_elements():
     assert second_largest(None) is None
+    assert kth_largest(2, None) is None
+    assert kth_largest(3, None) is None
 
 
 def test_one_element():
     a = BinaryTreeNode(1)
     assert second_largest(a) is None
+    assert kth_largest(2, a) is None
+    assert kth_largest(3, a) is None
 
 
 def test_two_elements():
@@ -15,6 +19,8 @@ def test_two_elements():
     b = BinaryTreeNode(2)
     a.right = b
     assert second_largest(a) == a
+    assert kth_largest(2, a) == a
+    assert kth_largest(3, a) is None
 
 
 def test_right_elements():
@@ -28,6 +34,8 @@ def test_right_elements():
     c.right = d
     d.right = e
     assert second_largest(a) == d
+    assert kth_largest(2, a) == d
+    assert kth_largest(3, a) == c
 
 
 def test_left_elements():
@@ -41,6 +49,8 @@ def test_left_elements():
     c.left = d
     d.left = e
     assert second_largest(a) == b
+    assert kth_largest(2, a) == b
+    assert kth_largest(3, a) == c
 
 
 def test_tree1():
@@ -54,6 +64,8 @@ def test_tree1():
     c.left = d
     b.right = e
     assert second_largest(a) == b
+    assert kth_largest(2, a) == b
+    assert kth_largest(3, a) == a
 
 
 def test_tree2():
@@ -79,19 +91,5 @@ def test_tree2():
     c.right = e
 
     assert second_largest(a) == e
-
-
-# def test_no_elements():
-#     assert get_kth_largest(2, None) is None
-#
-#
-# def test_one_element():
-#     a = BinaryTreeNode(1)
-#     assert get_kth_largest(2, a) is None
-#
-#
-# def test_k_elements():
-#     a = BinaryTreeNode(1)
-#     b = BinaryTreeNode(2)
-#     a.right = b
-#     assert get_kth_largest(2, a) == a
+    assert kth_largest(2, a) == e
+    assert kth_largest(3, a) == c
