@@ -23,4 +23,4 @@ def test_sum3():
 
 def test_sum3():
     nums = [1, 50, 1, 25, -2, 10, 100, -10, 0]
-    assert get_three_that_sum_to_zero(nums) == [10, -10, 0]
+    assert get_three_that_sum_to_zero(nums) == [1, 1, -2]
