@@ -2,14 +2,19 @@ from InterviewCake.linked_list import *
 
 
 # Works if cycles back to front or to middle of linked list
-# O(n) time and O(n) space
+# Optimal solution is to use two runners of different speeds
+# O(n) time and O(1) space
 def contains_cycle(node: LinkedListNode):
-    nodes_seen = set()
+    if not node:
+        return False
 
-    while node:
-        if node.value in nodes_seen:
+    slow = node
+    fast = node.next
+
+    while fast and fast.next:
+        if slow == fast:
             return True
-        nodes_seen.add(node.value)
-        node = node.next
+        slow = slow.next
+        fast = fast.next.next
 
     return False
