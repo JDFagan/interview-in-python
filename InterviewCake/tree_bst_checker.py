@@ -1,4 +1,4 @@
-from InterviewCake.binary_tree import *
+from InterviewCake.tree_binary import *
 
 
 def largest(node):

@@ -1,4 +1,4 @@
-from InterviewCake.reverse_link_list import *
+from InterviewCake.link_list_reverse import *
 import pytest
 
 

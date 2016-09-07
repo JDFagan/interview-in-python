@@ -1,4 +1,4 @@
-from InterviewCake.delete_linked_list import *
+from InterviewCake.linked_list_delete_node import *
 
 
 def test_delete0():

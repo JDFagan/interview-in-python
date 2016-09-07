@@ -1,4 +1,4 @@
-from InterviewCake.kth_largest_smallest_tree import *
+from InterviewCake.tree_kth_largest_smallest import *
 
 
 def test_no_elements():

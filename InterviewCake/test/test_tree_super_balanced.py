@@ -1,5 +1,5 @@
-from InterviewCake.binary_tree import *
-from InterviewCake.super_balanced_tree import *
+from InterviewCake.tree_binary import *
+from InterviewCake.tree_super_balanced import *
 
 def test_super_balanced_tree1():
     a = BinaryTreeNode(1)

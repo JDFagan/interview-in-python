@@ -1,5 +1,5 @@
 from InterviewCake.linked_list import *
-from InterviewCake.kth_linked_list import *
+from InterviewCake.linked_list_kth_to_last import *
 
 def test_kth_linked_list1():
     a = LinkedListNode("Angel Food")

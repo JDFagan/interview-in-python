@@ -1,4 +1,4 @@
-from InterviewCake.bst_checker import *
+from InterviewCake.tree_bst_checker import *
 
 
 def test_no_elements():
