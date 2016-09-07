@@ -1,23 +1,21 @@
+# O(m) time where m is number of m function calls and O(n) space
 class QueueFromStacks:
     def __init__(self):
-        self.stack1 = []
-        self.stack2 = []
+        self.in_stack = []
+        self.out_stack = []
 
     def enqueue(self, item):
-        self.stack1.append(item)
+        self.in_stack.append(item)
 
     def dequeue(self):
-        # Move over entire stack1 onto stack2 to reverse the stack
-        while len(self.stack1) > 0:
-            self.stack2.append(self.stack1.pop())
+        if len(self.out_stack) == 0:
+            # Move over stack1 onto stack2 to reverse the stack
+            while len(self.in_stack) > 1:
+                self.out_stack.append(self.in_stack.pop())
 
-        result = self.stack2.pop()
+            result = self.in_stack.pop()
 
-        # Move over rest of stack2 back onto stack1 to receive new enqueue requests
-        while len(self.stack2) > 0:
-            self.stack1.append(self.stack2.pop())
+        else:
+            result = self.out_stack.pop()
 
         return result
-
-    def as_list(self):
-        return self.stack1

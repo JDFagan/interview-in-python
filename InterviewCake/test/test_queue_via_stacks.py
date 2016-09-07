@@ -12,7 +12,6 @@ def test_queue1():
 
     q.enqueue(4)
     q.enqueue(5)
-    assert q.as_list() == [3, 4, 5]
     assert q.dequeue() == 3
     assert q.dequeue() == 4
     assert q.dequeue() == 5
