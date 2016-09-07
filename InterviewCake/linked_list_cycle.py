@@ -13,7 +13,8 @@ def contains_cycle(node: LinkedListNode):
     while fast and fast.next:
         slow = slow.next
         fast = fast.next.next
-        if slow == fast:
+        if fast == slow:
+            # we have cycled around and caught up to the slow runner
             return True
 
     return False
