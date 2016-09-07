@@ -1,17 +1,15 @@
 from InterviewCake.linked_list import *
 
 
-# O(n) time and O(1) space
+# Works if cycles back to front or to middle of linked list
+# O(n) time and O(n) space
 def contains_cycle(node: LinkedListNode):
-    result = False
-    starting_node = node
+    nodes_seen = set()
 
     while node:
-        if not node.next:
-            break
-        if node.next == starting_node:
-            result = True
-            break
+        if node.value in nodes_seen:
+            return True
+        nodes_seen.add(node.value)
         node = node.next
 
-    return result
+    return False
