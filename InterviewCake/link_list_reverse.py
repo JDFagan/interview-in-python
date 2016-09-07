@@ -4,13 +4,14 @@ from copy import deepcopy
 
 # O(n) time and O(1) space
 def reverse_link_list(head: LinkedListNode):
+    current = head
     prev = None
 
-    while head:
-        next = head.next
-        head.next = prev
-        prev = head
-        head = next
+    while current:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
 
     return prev
 
