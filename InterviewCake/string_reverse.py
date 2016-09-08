@@ -9,9 +9,7 @@ def reverse_string(s):
 
     # swap in place high indices with low indices
     while left < right:
-        temp = chars[left]
-        chars[left] = chars[right]
-        chars[right] = temp
+        chars[left], chars[right] = chars[right], chars[left]
         left += 1
         right -= 1
 
