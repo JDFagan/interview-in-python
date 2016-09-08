@@ -1,4 +1,6 @@
 # O(n) time and O(1) space
+# When your stack basically is storing all the same characters ('('), then you can collapse
+# your stack down to an integer, reducing your space from O(n) to O(1)!
 def match(input, parens_position):
     input_len = len(input)
     if parens_position < 0 or parens_position > input_len - 1 or input[parens_position] != "(":
