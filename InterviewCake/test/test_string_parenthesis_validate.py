@@ -1,4 +1,4 @@
-from InterviewCake.parenthesis_validate import *
+from InterviewCake.string_parenthesis_validate import *
 
 
 def test_validate0():

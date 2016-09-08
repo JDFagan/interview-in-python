@@ -1,4 +1,4 @@
-from InterviewCake.parenthesis_match import *
+from InterviewCake.string_parenthesis_match import *
 import pytest
 
 
