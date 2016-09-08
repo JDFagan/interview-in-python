@@ -1,3 +1,5 @@
+# Question by Hired
+
 # Write function that returns any three numbers that sum to zero.  If none meet that criteria, return None.
 # My first cut is brute force solution taking O(n^3) time and O(1) space
 def get_three_that_sum_to_zero(nums):
