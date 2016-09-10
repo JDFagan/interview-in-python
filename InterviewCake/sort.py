@@ -1,18 +1,19 @@
 # O(n + k) time and O(k) space where k is max value expected in array
 def counting_sort(array, k):
-    # in-place counting sort
+    # init histogram with zeros
+    counts = [0]*(k+1)
 
-    k += 1
-    count = [0] * k                 # init with zeros
-
-    # calculate the histogram of key frequencies
+    # populate histogram of value frequencies
     for a in array:
-        count[a] += 1               # histogram of array's values
+        counts[a] += 1               # histogram of array's values
 
-    i = 0
-    for a in range(k):              # emit
-        for _ in range(count[a]):   # - emit 'count[a]' copies of 'a'
-            array[i] = a
-            i += 1
+    result = []
 
-    return array
+    # for each i (the value), and item (the count) in counts
+    for i, item in enumerate(counts):
+        # for the count the value occurs
+        for time in range(item):
+            # add the value to the sorted list
+            result.append(i)
+
+    return result
