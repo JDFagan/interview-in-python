@@ -2,6 +2,7 @@
 def counting_sort(array, k):
     # in-place counting sort
 
+    k += 1
     count = [0] * k                 # init with zeros
 
     # calculate the histogram of key frequencies
