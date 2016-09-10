@@ -1,4 +1,4 @@
-# O(n + k) time and O(k) space where k is max value expected in array
+# O(n + k) time and O(n + k) space where k is max value expected in array
 def counting_sort(array, k):
     # init histogram with zeros
     counts = [0]*(k+1)
