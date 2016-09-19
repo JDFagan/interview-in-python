@@ -1,6 +1,16 @@
 from InterviewCake.shuffle import *
 
 
+def test_no_elements():
+    items = []
+    assert shuffle_inplace(items) == []
+
+
+def test_one_elements():
+    items = [1]
+    assert shuffle_inplace(items) == [1]
+
+
 def test_shuffle0():
     items = [1, 1, 1]
     assert shuffle_inplace(items) == [1, 1, 1]
