@@ -16,14 +16,14 @@ def test_word_cloud1():
     assert wc.word_cloud == result
 
 
-def test_word_cloud3():
+def test_word_cloud2():
     string = "'ONE.,?'s:;[{]}()`!! hyphenated-word"
     result = {'ones': 1, 'hyphenated-word': 1}
     wc = WordCloud(string)
     assert wc.word_cloud == result
 
 
-def test_word_cloud4():
+def test_word_cloud3():
     string = "We came, we saw, we conquered...then we ate Bill's (Mille-Feuille) cake."
     result = {'we': 4, 'came': 1, 'saw': 1, 'conqueredthen': 1, 'ate': 1, 'bills': 1, 'mille-feuille': 1,
               'cake': 1}
