@@ -1,9 +1,14 @@
+import string
+
 # O(n) time and O(n) space
 class WordCloud:
     # Write code that takes a long string and builds its word cloud data in a dictionary,
     # where the keys are words and the values are the number of times the words occurred.
 
-    punctuation = {'.', ',', '?', "'", '"', ';', ':', '[', ']', '{', '}', '(', ')', '!', '`'}
+    # I use a subset of C locale definition of string.punctuation so as to allow for hyphenated-words:
+    # string.punctuation == """!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
+    punctuation = set(string.punctuation)
+    punctuation.remove('-')
 
     @staticmethod
     def strip_punctuation(string: str):
