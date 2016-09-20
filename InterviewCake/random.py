@@ -41,6 +41,16 @@ def rand5_biased():
     return rand7() % 5 + 1
 
 
+# O(inf) time and O(1) space
+def rand7_biased():
+    # Constraint - can only make use of rand5 function.  How to make rand7_die return random (and uniform distribution)
+    # of numbers?
+    result = 10
+    while result > 7:
+        result = rand5() + rand5()
+
+    return result
+
 # O(7) time and O(1) space
 def rand7_die():
     # Constraint - can only make use of rand5 function.  How to make rand7_die return random (and uniform distribution)
