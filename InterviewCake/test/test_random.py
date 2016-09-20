@@ -32,4 +32,5 @@ def test_random5():
 def test_random7():
     __test_randomX(rand5)
     __test_randomX(rand7_biased)
+    __test_randomX(rand7_cake)
     __test_randomX(rand7_die)

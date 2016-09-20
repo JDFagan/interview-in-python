@@ -51,6 +51,25 @@ def rand7_biased():
 
     return result
 
+
+# O(inf) time and O(1) space
+def rand7_cake():
+    while True:
+        # do our die rolls
+        roll1 = rand5()
+        roll2 = rand5()
+
+        outcome_number = (roll1-1) * 5 + (roll2-1) + 1
+
+        # if we hit an extraneous
+        # outcome we just re-roll
+        if outcome_number > 21:
+            continue
+
+        # our outcome was fine. return it!
+        return outcome_number % 7 + 1
+
+
 # O(7) time and O(1) space
 def rand7_die():
     # Constraint - can only make use of rand5 function.  How to make rand7_die return random (and uniform distribution)
