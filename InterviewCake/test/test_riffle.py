@@ -57,3 +57,10 @@ def test_riffle7():
     shuffled_deck = [1, 2]
     with pytest.raises(IndexError):
         is_single_riffle(shuffled_deck, half1, half2)
+
+
+def test_riffle8():
+    half1 = [1, 2, 1, 3]
+    half2 = [4, 5, 6, 5, 4]
+    shuffled_deck = [1, 4, 2, 1, 5, 6, 5, 3, 4]
+    assert is_single_riffle(shuffled_deck, half1, half2)
