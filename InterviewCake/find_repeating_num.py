@@ -1,3 +1,6 @@
+# Update: Note - I misunderstood this problem.  The integers are not in orderered range of 1..n, but in a shuffled
+# range of 1..n (Oy vey! - this changes the problem significantly in how one attacks it!).
+
 # O(log(n)) time and O(1) space
 def find_repeating_num_in_range(nums_range: []):
     # We have a list of integers, where: The integers are in the range 1..n AND The list has a length of n+1
