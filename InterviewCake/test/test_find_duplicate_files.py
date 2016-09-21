@@ -16,3 +16,9 @@ def test_find_dup2():
     expected.append(('/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/problem.txt',
                      '/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/trollolol/haha.py'))
     assert find_duplicate_files(starting_dir=dir) == expected
+
+
+def test_find_dup3():
+    dir = expanduser("/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/empty")
+    expected = []
+    assert find_duplicate_files(starting_dir=dir) == expected
