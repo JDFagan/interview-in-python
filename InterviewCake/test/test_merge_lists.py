@@ -46,3 +46,10 @@ def test_merge5():
     my_list = [3, 4, 6, 10, 11, 15]
     alices_list = [1, 5, 8, 12, 14, 19]
     assert merge_lists(my_list, alices_list) == [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
+
+
+def test_merge_many1():
+    list1 = [1, 5, 10, 15, 20]
+    list2 = [7, 10, 99]
+    list3 = [-1, 3, 7, 20, 34]
+    assert merge_many([list1, list2, list3]) == [-1, 1, 3, 5, 7, 7, 10, 10, 15, 20, 20, 34, 99]
