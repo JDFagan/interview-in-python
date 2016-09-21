@@ -1,7 +1,7 @@
 from InterviewCake.random import *
 import time
 
-ITERATIONS = 1000000
+ITERATIONS = 10
 
 
 def __test_randomX(fn):
