@@ -1,12 +1,6 @@
 # O(n) time and O(n) space
 # Same problem Salesforce asked me as well and this was same code I wrote for it
 def merge_lists(list1: [], list2: []):
-    # Edge cases
-    if list1 == []:
-        return list2
-    if list2 == []:
-        return list1
-
     result = []
     i = j = 0
     while i < len(list1) and j < len(list2):
