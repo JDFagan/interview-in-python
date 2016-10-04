@@ -34,3 +34,13 @@ def test_random7():
     __test_randomX(rand7_biased)
     __test_randomX(rand7_cake)
     __test_randomX(rand7_die)
+
+
+def test_random5_proof():
+    rand5_proof()
+    # assert False
+
+
+def test_random7_proof():
+    rand7_proof()
+    # assert False

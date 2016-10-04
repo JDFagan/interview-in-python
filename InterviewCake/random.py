@@ -1,4 +1,5 @@
 import random
+import collections
 
 
 def rand5():
@@ -76,3 +77,31 @@ def rand7_die():
     # of numbers?
 
     return (rand5() + rand5() + rand5() + rand5() + rand5() + rand5() + rand5()) % 7 + 1
+
+
+def rand5_proof():
+    results = []
+    for i in range(1, 8):
+        for j in range(1,8):
+            for k in range(1,8):
+                for l in range(1,8):
+                    for m in range(1,8):
+                        results.append((i+j+k+l+m) % 5 + 1)
+
+    distribution = collections.Counter(results)
+    print(distribution)
+
+
+def rand7_proof():
+    results = []
+    for i in range(1, 6):
+        for j in range(1,6):
+            for k in range(1,6):
+                for l in range(1,6):
+                    for m in range(1,6):
+                        for n in range(1, 6):
+                            for o in range(1, 6):
+                                results.append((i+j+k+l+m+n+o) % 7 + 1)
+
+    distribution = collections.Counter(results)
+    print(distribution)
