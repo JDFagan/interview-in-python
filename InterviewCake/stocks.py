@@ -4,7 +4,7 @@ def get_max_profit(stock_prices_yesterday):
         raise IndexError('Getting a profit requires at least 2 prices')
 
     min_price = max_price = None
-    profit = max_profit = None
+    max_profit = None
 
     # Greedy solution requiring O(n) time and O(1) space
     for i in range(len(stock_prices_yesterday)):
