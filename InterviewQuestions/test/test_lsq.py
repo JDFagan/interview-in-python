@@ -1,6 +1,12 @@
 from InterviewQuestions.lsq import *
 
 
+def test_lsq0():
+    digits = []
+    words = {'cat', 'cab', 'cats', 'aardvark', 'abacus', 'zoo', 'hat'}
+    assert t9(digits, words) == words
+
+
 def test_lsq1():
     digits = [2, 2]
     words = {'cat', 'cab', 'cats', 'aardvark', 'abacus', 'zoo', 'hat'}
@@ -41,3 +47,9 @@ def test_lsq7():
     digits = [9]
     words = {'cat', 'cab', 'cats', 'aardvark', 'abacus', 'ads', 'zoo', 'hat'}
     assert t9(digits, words) == {'zoo'}
+
+
+def test_lsq8():
+    digits = [2, 2, 7]
+    words = {'cat', 'cab', 'cats', 'aardvark', 'abacus', 'ads', 'zoo', 'hat'}
+    assert t9(digits, words) == {'aardvark'}
