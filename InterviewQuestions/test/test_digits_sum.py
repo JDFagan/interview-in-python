@@ -17,3 +17,9 @@ def test_digits3():
     num = 4200
     target = 6
     assert do_digits_sum_to_target(num, target)
+
+
+def test_digits4():
+    num = 12
+    target = 3
+    assert do_digits_sum_to_target(num, target)

@@ -1,6 +1,7 @@
 import bisect
 import math
 
+
 # Tactic is to first order by normalized values by one unit of weight and fill duffel bag first by this ordering.
 # Note: my solution is faster algorithm that gives us a good answer, even if it's not the optimal answer.
 # Sometimes an efficient, good answer might be more practical than an inefficient, optimal answer.
