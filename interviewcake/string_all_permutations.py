@@ -12,13 +12,15 @@
 # for cta:
 #       [scta, csta, ctsa, ctas]
 # ...
-def get_permutations(string: str):
-    # Base cases
-    if len(string) == 1:
-        return set([string])
 
-    all_chars_except_last = string[:-1]
-    last_char = string[-1]
+
+def get_permutations(s: str):
+    # Base cases
+    if len(s) == 1:
+        return set([s])
+
+    all_chars_except_last = s[:-1]
+    last_char = s[-1]
 
     # recursive call
     permutations_all_chars_except_last = get_permutations(all_chars_except_last)
@@ -32,3 +34,31 @@ def get_permutations(string: str):
             permutations.add(permutation)
 
     return permutations
+
+def get_permutations_s_within_b(s: str, b: str):
+    s_permutations = get_permutations(s)
+    len_s = len(s)
+
+    result = set()
+    for i in range(len(b) - len_s - 1):
+        b_segment = b[i:i + len_s]
+        print(b[i:i + len_s], end='')
+        if b_segment in s_permutations:
+            print('*')
+            result.add(b_segment)
+        else:
+            print()
+
+    return result
+
+
+b = 'babcabbacaabcbabcacbb'
+s = 'abbc'
+
+b_within_s = get_permutations_s_within_b(s, b)
+
+print()
+print(s)
+print(b)
+print(get_permutations(s))
+print(b_within_s)
