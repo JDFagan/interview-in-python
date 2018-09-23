@@ -1,5 +1,4 @@
 from interviewcake.link_list_reverse import *
-import pytest
 
 
 def test_reverse1():

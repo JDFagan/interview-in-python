@@ -19,7 +19,7 @@ def merge_lists(list1: [], list2: []):
     return result
 
 
-from sortedcontainers import SortedList
+# from sortedcontainers import SortedList
 
 # Insert: O(log(n)) time and O(n) space
 # Inorder: O(n) time
@@ -29,13 +29,13 @@ from sortedcontainers import SortedList
 # Salesforce actually asked this bonus question too and perhaps I didn't answer this adequately enough as
 # I said solution should still be O(n) time and O(n) space despite if one uses a binary search tree data
 # structure for storing the intermediate sorting structure before generating the result.
-def merge_many(list_of_sorted_lists: []):
-    result = []
-    sorted = SortedList()
-    for l in list_of_sorted_lists:
-        sorted.update(l)
-
-    for i in sorted:
-        result.append(i)
-
-    return result
+# def merge_many(list_of_sorted_lists: []):
+#     result = []
+#     sorted = SortedList()
+#     for l in list_of_sorted_lists:
+#         sorted.update(l)
+#
+#     for i in sorted:
+#         result.append(i)
+#
+#     return result

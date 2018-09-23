@@ -1,4 +1,3 @@
-from interviewcake.tree_binary import *
 from interviewcake.tree_super_balanced import *
 
 def test_super_balanced_tree1():

@@ -1,5 +1,4 @@
 from interviewcake.coin_combos import *
-import pytest
 
 
 def test_coins1():

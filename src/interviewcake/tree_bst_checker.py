@@ -1,6 +1,3 @@
-from interviewcake.tree_binary import *
-
-
 def largest(node):
     while node.right:
         node = node.right
