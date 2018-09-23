@@ -1,5 +1,4 @@
 from interviewcake.hical import *
-import pytest
 
 
 def test_hical1():

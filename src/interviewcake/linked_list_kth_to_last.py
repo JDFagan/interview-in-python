@@ -1,5 +1,5 @@
 from interviewcake.linked_list import *
-from copy import deepcopy
+
 
 # O(2n) time and O(1) space
 def kth_to_last_node(k, node: LinkedListNode):

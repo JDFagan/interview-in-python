@@ -1,3 +1,4 @@
+"""
 Writing programming interview questions hasn't made me rich. Maybe trading Apple stocks will.
 Suppose we could access yesterday's stock prices as a list, where:
 
@@ -27,9 +28,9 @@ Breakdown
 To start, try writing an example value for stock_prices_yesterday and finding the maximum profit "by hand." What's your process for figuring out the maximum profit?
 
 The brute force ↴ approach would be to try every pair of times (treating the earlier time as the buy time and the later time as the sell time) and see which one is higher.
+"""
 
-  def get_max_profit(stock_prices_yesterday):
-
+def get_max_profit(stock_prices_yesterday):
     max_profit = 0
 
     # go through every time
@@ -55,6 +56,7 @@ The brute force ↴ approach would be to try every pair of times (treating the e
 
     return max_profit
 
+"""
 But that will take O(n^2)O(n
 ​2
 ​​ ) time, since we have two nested loops—for every time, we're going through every other time. Can we do better?
@@ -62,9 +64,9 @@ But that will take O(n^2)O(n
 Well, we’re doing a lot of extra work. We’re looking at every pair twice. We know we have to buy before we sell, so in our inner for loop we could just look at every price after the price in our outer for loop.
 
 That could look like this:
+"""
 
-  def get_max_profit(stock_prices_yesterday):
-
+def get_max_profit(stock_prices_yesterday):
     max_profit = 0
 
     # go through every price (with its index as the time)
@@ -82,6 +84,7 @@ That could look like this:
 
     return max_profit
 
+"""
 What’s our runtime now?
 
 Well, our outer for loop goes through all the times and prices, but our inner for loop goes through one fewer price each time. So our total number of steps is the sum n + (n - 1) + (n - 2) ... + 2 + 1n+(n−1)+(n−2)...+2+1 ↴ , which is still O(n^2)O(n
@@ -109,9 +112,9 @@ So for every price, we’ll need to:
 keep track of the lowest price we’ve seen so far
 see if we can get a better profit
 Here’s one possible solution:
+"""
 
-  def get_max_profit(stock_prices_yesterday):
-
+def get_max_profit(stock_prices_yesterday):
     min_price = stock_prices_yesterday[0]
     max_profit = 0
 
@@ -129,6 +132,7 @@ Here’s one possible solution:
 
     return max_profit
 
+"""
 We’re finding the max profit with one pass and constant space!
 
 Are we done? Let’s think about some edge cases. What if the stock value stays the same? What if the stock value goes down all day?
@@ -195,9 +199,9 @@ To start, we initialize:
 min_price as the first price of the day
 max_profit as the first profit we could get
 We decided to return a negative profit if the price decreases all day and we can't make any money. We could have thrown an error instead, but returning the negative profit is cleaner, makes our function less opinionated, and ensures we don't lose information.
+"""
 
-  def get_max_profit(stock_prices_yesterday):
-
+def get_max_profit(stock_prices_yesterday):
     # make sure we have at least 2 prices
     if len(stock_prices_yesterday) < 2:
         raise IndexError('Getting a profit requires at least 2 prices')
@@ -231,6 +235,7 @@ We decided to return a negative profit if the price decreases all day and we can
 
     return max_profit
 
+"""
 Complexity
 O(n)O(n) time and O(1)O(1) space. We only loop through the list once.
 
@@ -252,3 +257,4 @@ The "additional value" is the minimum price we've seen so far. If we keep that u
 The previous max profit
 The max profit we can get by selling now (the current price minus the minimum price seen so far)
 Try applying this greedy methodology to future questions.
+"""

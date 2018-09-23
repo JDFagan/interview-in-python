@@ -1,4 +1,3 @@
-from interviewcake.linked_list import *
 from interviewcake.linked_list_kth_to_last import *
 
 def test_kth_linked_list1():
