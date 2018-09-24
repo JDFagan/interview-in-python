@@ -1,10 +1,13 @@
-def largest(node):
+from interviewcake.tree_binary import *
+
+
+def largest(node: BinaryTreeNode):
     while node.right:
         node = node.right
     return node
 
 
-def second_largest(node):
+def second_largest(node: BinaryTreeNode):
     prev_largest = None
     while node:
         if node.right:
@@ -20,7 +23,7 @@ def second_largest(node):
     return prev_largest
 
 
-def kth_largest(k, node):
+def kth_largest(k, node: BinaryTreeNode):
     if node is None:
         return None
 
@@ -39,7 +42,7 @@ def kth_largest(k, node):
     return node
 
 
-def kth_smallest(k, node):
+def kth_smallest(k, node: BinaryTreeNode):
     if node is None:
         return None
 

@@ -1,3 +1,6 @@
+from interviewcake.tree_bst_checker import *
+
+
 def test_no_elements():
     assert is_binary_search_tree(None)
 

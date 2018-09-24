@@ -1,4 +1,7 @@
-def largest(node):
+from interviewcake.tree_binary import *
+
+
+def largest(node: BinaryTreeNode):
     while node.right:
         node = node.right
     return node
@@ -6,7 +9,7 @@ def largest(node):
 
 # Use depth-first search testing for validity for each node as we go
 # O(n) time and O(h) space where h is height of tree
-def is_binary_search_tree(node):
+def is_binary_search_tree(node: BinaryTreeNode):
     if not node:
         return True
     if not node.left:

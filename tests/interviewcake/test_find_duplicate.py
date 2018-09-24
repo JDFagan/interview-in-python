@@ -1,3 +1,6 @@
+from interviewcake.find_duplicate import *
+
+
 def test_no_elements():
     numbers = []
     assert find_duplicate_number_not_in_a_range(numbers) is None
