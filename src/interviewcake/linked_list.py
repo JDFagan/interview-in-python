@@ -1,7 +1,7 @@
 class LinkedListNode:
-    def __init__(self, value):
+    def __init__(self, value=None, next=None):
         self.value = value
-        self.next = None
+        self.next = next
 
     def __lt__(self, other):
         return self.value < other.value

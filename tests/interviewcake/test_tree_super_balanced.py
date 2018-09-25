@@ -1,5 +1,6 @@
 from interviewcake.tree_super_balanced import *
 
+
 def test_super_balanced_tree1():
     a = BinaryTreeNode(1)
     b = BinaryTreeNode(2)

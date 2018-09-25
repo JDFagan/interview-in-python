@@ -1,24 +1,27 @@
-from interviewcake.find_duplicate_files import *
-from os.path import expanduser
+import os
+
+from interviewcake.find_duplicate_files import find_duplicate_files
 
 
 def test_find_dup1():
-    dir = expanduser("~/Repositories/JDFagan/InterviewInPython/InterviewCake/test")
+    dir = os.path.expanduser("~/Repositories/JDFagan/interview-in-python/tests/interviewcake/")
     expected = []
-    assert find_duplicate_files(starting_dir=dir) == expected
+    assert expected == find_duplicate_files(starting_dir=dir)
 
 
 def test_find_dup2():
-    dir = expanduser("~/Repositories/JDFagan/InterviewInPython/InterviewCake/")
+    dir = os.path.expanduser("~/Repositories/JDFagan/interview-in-python/src/interviewcake/")
     expected = []
-    expected.append(('/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/__init__.py',
-                     '/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/test/__init__.py'))
-    expected.append(('/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/problem.txt',
-                     '/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/trollolol/haha.py'))
-    assert find_duplicate_files(starting_dir=dir) == expected
+    # expected = [('/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/__init__.py',
+    #             '/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/trollolol/__init__.py')]
+    expected.append(('/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/__init__.py',
+                     '/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/trollolol/__init__.py'))
+    expected.append(('/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/problem.txt',
+                     '/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/trollolol/haha.py'))
+    assert expected == find_duplicate_files(starting_dir=dir)
 
 
 def test_find_dup3():
-    dir = expanduser("/Users/JDFagan/Repositories/JDFagan/InterviewInPython/InterviewCake/empty")
+    dir = os.path.expanduser("/Users/JDFagan/Repositories/JDFagan/interview-in-python/src/interviewcake/empty/")
     expected = []
-    assert find_duplicate_files(starting_dir=dir) == expected
+    assert expected == find_duplicate_files(starting_dir=dir)
