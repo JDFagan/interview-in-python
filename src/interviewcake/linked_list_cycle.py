@@ -8,8 +8,8 @@ def contains_cycle(node: LinkedListNode):
     if not node:
         return False
 
-    slow = fast = node
-
+    slow = node
+    fast = node
     while fast and fast.next:
         slow = slow.next
         fast = fast.next.next

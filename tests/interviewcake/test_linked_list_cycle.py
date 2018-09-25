@@ -1,6 +1,26 @@
 from interviewcake.linked_list_cycle import *
 
 
+def test_cycle_empty():
+    a = None
+
+    assert not contains_cycle(a)
+
+
+def test_cycle_one_element_has_cycle():
+    a = LinkedListNode("Angel Food")
+
+    assert not contains_cycle(a)
+
+
+def test_cycle_one_element_no_cycle():
+    a = LinkedListNode("Angel Food")
+
+    a.next = a
+
+    assert contains_cycle(a)
+
+
 def test_cycle0():
     a = LinkedListNode("Angel Food")
     b = LinkedListNode("Bundt")
