@@ -25,9 +25,9 @@ class ConnectFour:
     BOARD_ROWS = 6
     BOARD_COLS = 7
 
-    def __init__(self, num_rows=BOARD_ROWS, num_cols=BOARD_COLS):
-        self.num_rows = num_rows
-        self.num_cols = num_cols
+    def __init__(self, board_rows=BOARD_ROWS, board_cols=BOARD_COLS):
+        self.board_rows = board_rows
+        self.board_cols = board_cols
         self.player = None
         self.board: numpy.ndarray = None
         self.rows_played_by_col = None
@@ -54,12 +54,15 @@ class ConnectFour:
 
     def new_board(self):
         # self.board = [[0 for _ in range(self.num_cols)] for _ in range(self.num_rows)]
-        self.board = numpy.zeros(shape=(self.num_rows, self.num_cols), dtype=numpy.int_)
+        self.board = numpy.zeros(shape=(self.board_rows, self.board_cols), dtype=numpy.int_)
         self.player = 1
-        self.rows_played_by_col = [0] * self.num_cols
+        self.rows_played_by_col = [0] * self.board_cols
 
     def print_board(self):
         print(pandas.DataFrame(self.board))
+        print()
+        print('[::-1] flipped board:')
+        print(pandas.DataFrame(self.board[::-1]))
 
     def play_move(self, col):
         """
@@ -107,7 +110,7 @@ class ConnectFour:
         diags.extend(self.board.diagonal(i) for i in range(self.board.shape[1] - 1, -self.board.shape[0], -1))
         diag_board = [n.tolist() for n in diags]
         print('...checking for diagonal win...')
-        winner = self.horizontal_winner(board=diag_board, row=row, col=col, winning_seq=winning_seq)
+        winner = self.diagonal_winner(board=self.board, row=row, col=col, winning_seq=winning_seq)
 
         return winner
 
@@ -145,7 +148,7 @@ class ConnectFour:
         r = row + 1
         start_window = max(r - self.WINNING_SEQUENCE_COUNT, 0)
         end_window = start_window + self.WINNING_SEQUENCE_COUNT
-        windows = [(max(sw, 0), min(sw + self.WINNING_SEQUENCE_COUNT, self.BOARD_COLS)) for sw in range(start_window, end_window)]
+        windows = [(max(sw, 0), min(sw + self.WINNING_SEQUENCE_COUNT, self.board_cols)) for sw in range(start_window, end_window)]
         print(board)
         # print('row ({}), col ({}), windows = {}'.format(row, col, windows))
 
@@ -159,9 +162,61 @@ class ConnectFour:
 
         return winner
 
-    def diagonal_winner(self, board):
+    def diagonal_winner(self, board, row, col, winning_seq):
         winner = 0
+        diagonals = self.get_diagonals(board, row, col)
 
-        # for diag in board:
-        pass
-    
+        down_diagonal = diagonals['down_diagonal']
+        up_diagonal = diagonals['up_diagonal']
+        print('col = {}, down_diagonal = {}'.format(col, down_diagonal))
+        print('col = {}, up_diagonal = {}'.format(col, up_diagonal))
+
+        # Test for down diagonal winner
+        c = col + 1
+        start_window = max(c - self.WINNING_SEQUENCE_COUNT, 0)
+        end_window = start_window + self.WINNING_SEQUENCE_COUNT
+        windows = [(max(sw, 0), min(sw + self.WINNING_SEQUENCE_COUNT, self.board_cols)) for sw in
+                   range(start_window, end_window)]
+
+        for window in windows:
+            seq = tuple(down_diagonal[window[0]:window[1]])
+            print('Comparing seq ({}) to winning_seq ({})'.format(seq, winning_seq))
+            if seq == winning_seq:
+                return self.player
+
+        # Test for up diagonal winner
+        c = col + 1
+        start_window = max(c - self.WINNING_SEQUENCE_COUNT, 0)
+        end_window = start_window + self.WINNING_SEQUENCE_COUNT
+        windows = [(max(sw, 0), min(sw + self.WINNING_SEQUENCE_COUNT, self.board_cols)) for sw in
+                   range(start_window, end_window)]
+
+        for window in windows:
+            seq = tuple(up_diagonal[window[0]:window[1]])
+            print('Comparing seq ({}) to winning_seq ({})'.format(seq, winning_seq))
+            if seq == winning_seq:
+                return self.player
+
+        return winner
+
+    @staticmethod
+    def get_diagonals(board, row, col):
+        # Get the down and up sloping diagonals from current row, col
+        down_offset = col - row
+        up_offset = (col + row) * -1
+
+        board_rows = board.shape[0]
+        if col >= board_rows:
+            down_offset_of_flipped_up_offset = -up_offset - board_rows + 1
+        else:
+            down_offset_of_flipped_up_offset = (up_offset + board_rows - 1) * -1
+
+        print('down_offset = {}, up_offset = {}, doofuo = {}'.format(down_offset, up_offset,
+                                                                     down_offset_of_flipped_up_offset))
+
+        diagonals = {
+            'down_diagonal': board.diagonal(offset=down_offset).tolist(),
+            'up_diagonal': board[::-1].diagonal(offset=down_offset_of_flipped_up_offset).tolist(),
+            }
+        print(diagonals)
+        return diagonals
