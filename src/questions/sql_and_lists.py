@@ -77,19 +77,19 @@ yellow 6
 """
 
 
-def print_lens(list):
-    for item in list:
+def print_lens(list_):
+    for item in list_:
         print('{} {}'.format(item, len(item)))
 
 
 color = ['red', 'green', 'blue', 'yellow']
-print_lens(list=color)
+print_lens(list_=color)
 
 
 # List comprehension version
-def print_lens2(list):
-    [print('{} {}'.format(item, len(item))) for item in list]
+def print_lens2(list_):
+    [print('{} {}'.format(item, len(item))) for item in list_]
 
 
 print()
-print_lens2(list=color)
+print_lens2(list_=color)
