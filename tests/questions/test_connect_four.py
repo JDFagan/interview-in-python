@@ -129,3 +129,30 @@ def test_game_diagonal_up_win_player_1():
             ]
     cf = ConnectFour()
     assert 1 == cf.play_game(game)
+
+
+def test_game_stalemate():
+    game = [1, 1,
+            1, 1,
+            1, 1,
+            2, 3,
+            3, 3,
+            4, 2,
+            2, 2,
+            2, 2,
+            3, 3,
+            3, 4,
+            5, 6,
+            7, 7,
+            7, 7,
+            7, 7,
+            6, 6,
+            6, 6,
+            6, 5,
+            5, 5,
+            5, 5,
+            4, 4,
+            4, 4,
+            ]
+    cf = ConnectFour()
+    assert 0 == cf.play_game(game)

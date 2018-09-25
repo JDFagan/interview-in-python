@@ -166,36 +166,19 @@ class ConnectFour:
         winner = 0
         diagonals = self.get_diagonals(board, row, col)
 
-        down_diagonal = diagonals['down_diagonal']
-        up_diagonal = diagonals['up_diagonal']
-        print('col = {}, down_diagonal = {}'.format(col, down_diagonal))
-        print('col = {}, up_diagonal = {}'.format(col, up_diagonal))
-
-        # Test for down diagonal winner
         c = col + 1
         start_window = max(c - self.WINNING_SEQUENCE_COUNT, 0)
         end_window = start_window + self.WINNING_SEQUENCE_COUNT
         windows = [(max(sw, 0), min(sw + self.WINNING_SEQUENCE_COUNT, self.board_cols)) for sw in
                    range(start_window, end_window)]
 
-        for window in windows:
-            seq = tuple(down_diagonal[window[0]:window[1]])
-            print('Comparing seq ({}) to winning_seq ({})'.format(seq, winning_seq))
-            if seq == winning_seq:
-                return self.player
-
-        # Test for up diagonal winner
-        c = col + 1
-        start_window = max(c - self.WINNING_SEQUENCE_COUNT, 0)
-        end_window = start_window + self.WINNING_SEQUENCE_COUNT
-        windows = [(max(sw, 0), min(sw + self.WINNING_SEQUENCE_COUNT, self.board_cols)) for sw in
-                   range(start_window, end_window)]
-
-        for window in windows:
-            seq = tuple(up_diagonal[window[0]:window[1]])
-            print('Comparing seq ({}) to winning_seq ({})'.format(seq, winning_seq))
-            if seq == winning_seq:
-                return self.player
+        for diagonal in diagonals.values():
+            print('col = {}, diagonal = {}'.format(col, diagonal))
+            for window in windows:
+                seq = tuple(diagonal[window[0]:window[1]])
+                print('Comparing seq ({}) to winning_seq ({})'.format(seq, winning_seq))
+                if seq == winning_seq:
+                    return self.player
 
         return winner
 
