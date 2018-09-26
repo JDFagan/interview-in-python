@@ -9,6 +9,7 @@ dependencies:
   - astroid=2.0.3=py37_0
   - atomicwrites=1.2.1=py_0
   - attrs=18.2.0=py_0
+  - blas=1.0=mkl
   - bzip2=1.0.6=1
   - ca-certificates=2018.8.24=ha4d7672_0
   - certifi=2018.8.24=py37_1001
@@ -63,7 +64,6 @@ dependencies:
   - xz=5.2.4=h470a237_1
   - yaml=0.1.7=h470a237_1
   - zlib=1.2.11=h470a237_3
-  - blas=1.0=mkl
   - intel-openmp=2019.0=118
   - libcxxabi=4.0.1=hebd6815_0
   - libgfortran=3.0.1=h93005f0_2

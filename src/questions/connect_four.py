@@ -54,7 +54,7 @@ class ConnectFour:
 
     def new_board(self):
         # self.board = [[0 for _ in range(self.num_cols)] for _ in range(self.num_rows)]
-        self.board = numpy.zeros(shape=(self.board_rows, self.board_cols), dtype=numpy.int_)
+        self.board = numpy.zeros(shape=(self.board_rows, self.board_cols), dtype=int)
         self.player = 1
         self.rows_played_by_col = [0] * self.board_cols
 
