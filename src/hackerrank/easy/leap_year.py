@@ -11,7 +11,7 @@ This means that in the Gregorian calendar, the years 2000 and 2400 are leap year
 and 2500 are NOT leap years.  See http://www.timeanddate.com/date/leapyear.html
 
 Task
-You are given the year, and you have to write a function to check if the year is leap or not.
+You are given the year, and you have to write a function to is_parens_balanced if the year is leap or not.
 
 Note that you have to complete the function and remaining code is given as template.
 

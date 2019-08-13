@@ -22,7 +22,8 @@ Sample Output
 16
 """
 if __name__ == '__main__':
-    n = int(input())
+    n = int(input("Enter an integer to see its squared range:  "))
 
-    for i in range(n):
-        print(i ** 2)
+    # for i in range(n):
+    #     print(i ** 2)
+    [print(i ** 2) for i in range(n)]

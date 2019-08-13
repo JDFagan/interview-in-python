@@ -19,6 +19,6 @@ Sample Output 0
 123
 """
 if __name__ == '__main__':
-    n = int(input())
+    n = int(input("Input an integer to see its ranged sequence in one line (e.g., 123...n)"))
     for i in range(1, n + 1):
         print(i, end='')
