@@ -48,9 +48,6 @@ def sherlockAndAnagrams(s):
                     # anagrams += [[i, j+1]]
                     anagrams += [[ss1, ss2]]
 
-            # anagrams += [[substring_list, ss] for ss in [substring_lists[i:]] if is_anagram(substring_list, ss)]
-            # print(f"anagrams = {anagrams}")
-
     # Brute force: O(n**2)
     # anagrams = [[ss1, ss2] for i, ss1 in enumerate(substrings) for ss2 in substrings[i+1:] if is_anagram(ss1, ss2)]
     print(anagrams)
