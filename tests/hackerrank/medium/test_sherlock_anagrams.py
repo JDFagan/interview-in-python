@@ -17,7 +17,12 @@ def test_get_substrings():
 
 
 def test_sherlock_and_anagrams():
-    assert len(sherlockAndAnagrams('abba')) == 4
-    assert len(sherlockAndAnagrams('abcd')) == 0
-    assert len(sherlockAndAnagrams('ifailuhkqq')) == 3
-    assert len(sherlockAndAnagrams('kkkk')) == 10
+    assert sherlockAndAnagrams('abba') == 4
+    assert sherlockAndAnagrams('abcd') == 0
+    assert sherlockAndAnagrams('ifailuhkqq') == 3
+    assert sherlockAndAnagrams('kkkk') == 10
+    assert sherlockAndAnagrams('cdcd') == 5
+
+def test_sherlock_and_anagrams_long():
+    assert sherlockAndAnagrams('ifailuhkqqhucpoltgtyovarjsnrbfpvmupwjjjfiwwhrlkpekxxnebfrwibylcvkfealgonjkzwlyfhhkefuvgndgdnbelgruel') == 399
+    assert sherlockAndAnagrams('gffryqktmwocejbxfidpjfgrrkpowoxwggxaknmltjcpazgtnakcfcogzatyskqjyorcftwxjrtgayvllutrjxpbzggjxbmxpnde') == 471
