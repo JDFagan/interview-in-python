@@ -54,3 +54,8 @@ def test_count_triplets6():
         1, 2, 1, 2, 4,
         ]
     assert countTriplets(arr, r=2) == 3
+
+
+def test_count_triplets7():
+    arr = [1237]*100000
+    assert countTriplets(arr, r=1) == 166661666700000
