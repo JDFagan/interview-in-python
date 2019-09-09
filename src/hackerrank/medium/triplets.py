@@ -19,7 +19,7 @@ def countTriplets(arr, r):
 
         if a3 in potentials:
             potentials[a3] += 1
-            result +=
+            # result +=
             for a3_map in triplets[a3]:
                 a3_map['n3_count'] += 1
                 result += a3_map['n2_count']
