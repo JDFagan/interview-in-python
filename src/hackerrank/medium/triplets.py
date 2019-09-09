@@ -10,18 +10,24 @@ import sys
 # Complete the countTriplets function below.
 def countTriplets(arr, r):
     result = 0
-    triplets = {}
-    for i, an in enumerate(arr):
+
+    counts   = {}
+    potentials = {}
+    for an in arr:
         a2 = an / r
         a3 = an / (r ** 2)
 
-        if a3 in triplets:
+        if a3 in potentials:
+            potentials[a3] += 1
+            result +=
             for a3_map in triplets[a3]:
                 a3_map['n3_count'] += 1
                 result += a3_map['n2_count']
         if a2 in triplets:
             for a2_map in triplets[a2]:
                 a2_map['n2_count'] += 1
+
+        potentials[an]
         if an in triplets:
             triplets[an].append({
                 'n2_count': 0,      # an = a*r**(n-1) = a*r**(2-1) = a*r**(1) = a*r; a = an/r
