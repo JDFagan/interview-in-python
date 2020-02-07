@@ -1,0 +1,13 @@
+Duplicate files:
+(./__init__.py, ./sub1/__init__.py)
+(./__init__.py, ./sub1/empty)
+(./ha.py, ./ha.txt)
+(./ha.py, ./sub1/haha.txt)
+(./ha.py, ./sub1/hehe.txt)
+
+Unique files:
+./haha.py
+./har.txt
+./not_a_dupe.txt
+"./test expectations.txt"
+./sub1/not_a_dupe.txt
