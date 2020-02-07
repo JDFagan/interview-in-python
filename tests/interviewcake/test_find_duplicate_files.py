@@ -2,20 +2,26 @@ import os
 
 from interviewcake.find_duplicate_files import find_duplicate_files
 
-test_dir = '~/Repositories/JDFagan/interview-in-python/src/questions/duplicate_file_test'
-
 
 def test_find_dup1():
+    dir = os.path.expanduser("~/Repositories/JDFagan/interview-in-python/tests/interviewcake/")
     expected = []
-    assert expected == find_duplicate_files(starting_dir=os.path.expanduser(f'{test_dir}/empty_dir/'))
+    assert expected == find_duplicate_files(starting_dir=dir)
 
 
 def test_find_dup2():
+    dir = os.path.expanduser("~/Repositories/JDFagan/interview-in-python/src/interviewcake/")
     expected = []
-    expected.append((os.path.expanduser(f'{test_dir}/sub1/__init__.py'), os.path.expanduser(f'{test_dir}/sub1/empty')))
-    assert expected == find_duplicate_files(starting_dir=os.path.expanduser(f'{test_dir}/sub1/'))
+    # expected = [('/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/__init__.py',
+    #             '/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/trollolol/__init__.py')]
+    expected.append(('/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/__init__.py',
+                     '/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/trollolol/__init__.py'))
+    expected.append(('/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/problem.txt',
+                     '/Users/jdfagan/Repositories/JDFagan/interview-in-python/src/interviewcake/trollolol/haha.py'))
+    assert expected == find_duplicate_files(starting_dir=dir)
 
 
 def test_find_dup3():
+    dir = os.path.expanduser("/Users/JDFagan/Repositories/JDFagan/interview-in-python/src/interviewcake/empty/")
     expected = []
-    assert expected == find_duplicate_files(starting_dir=os.path.expanduser(test_dir))
+    assert expected == find_duplicate_files(starting_dir=dir)
