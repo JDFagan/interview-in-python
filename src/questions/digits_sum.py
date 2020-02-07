@@ -2,7 +2,7 @@
 
 
 # O(n) time and O(n) space where n is number of digits in the input
-def do_digits_sum_to_target(num, target):
+def do_digits_sum_to_target(num: int, target: int):
     digits = list(str(num))
     total = 0
 
