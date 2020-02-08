@@ -15,21 +15,34 @@ def find_duplicate_files(starting_dir: str=os.path.abspath(os.curdir)):
     :return: set of duplicate file sets where each set represents a unique duplicate file shown with the collection of
     file paths
     """
-    files = {}
-    duplicate_files = []
-
     os.chdir(starting_dir)
+
+    files = {}
     print(f"Finding dupe sets within {starting_dir}")
     for filename in glob.glob('**/*', recursive=True):
-        hash = os.path.getsize(filename)
-        print(f"{filename}: {hash}")
-        if hash in files:
-            files[hash].add(filename)
+        file_hash = hash_file(filename)
+        print(f"{filename}: {file_hash}")
+        if file_hash in files:
+            files[file_hash].add(filename)
         else:
-            files[hash] = {filename}
+            files[file_hash] = {filename, }
 
-    for _, duplicates in files.items():
-        if len(duplicates) > 1:
-            duplicate_files.append(duplicates)
-
+    duplicate_files = {file_hash: duplicates for (file_hash, duplicates) in files.items() if len(duplicates) > 1}
     return duplicate_files
+
+
+def hash_file(filename):
+    # return os.path.getsize(filename)
+    with open(filename, "rb") as f:
+        hasher = hashlib.md5()
+        block_size = 8192
+        # For Python 3.8+
+        # while chunk := f.read(8192):
+        chunk = f.read(block_size)
+        while len(chunk) > 0:
+            hasher.update(chunk)
+            chunk = f.read(block_size)
+    # print(hasher.digest())
+    # print(hasher.hexdigest())
+
+    return hasher.hexdigest()
