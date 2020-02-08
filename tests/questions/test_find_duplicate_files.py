@@ -2,22 +2,27 @@ import os
 
 from questions.find_duplicate_files import find_duplicate_files
 
-test_dir = "~/Repositories/JDFagan/interview-in-python/tests/questions/duplicate_file_test"
+test_dir = os.path.expanduser('~/Repositories/JDFagan/interview-in-python/src/questions/duplicate_file_test')
 
 
 def test_find_dup1():
+    dir = f'{test_dir}/empty_dir/'
     expected = []
-    assert expected == find_duplicate_files(starting_dir=os.path.expanduser(f"{test_dir}/empty_dir/"))
+    assert find_duplicate_files(starting_dir=dir) == expected
 
 
 def test_find_dup2():
-    expected = []
-    expected.append((os.path.expanduser(f"{test_dir}/sub1/__init__.py"), os.path.expanduser(f"{test_dir}/sub1/empty")))
-    expected.append((os.path.expanduser(f"{test_dir}/sub1/__init__.py"), os.path.expanduser(f"{test_dir}/sub1/empty")))
-    assert expected == find_duplicate_files(starting_dir=os.path.expanduser(f"{test_dir}/sub1/"))
+    dir = f'{test_dir}/sub1/'
+    expected = [
+        {'__init__.py', 'empty'},
+        ]
+    assert find_duplicate_files(starting_dir=dir) == expected
 
 
 def test_find_dup3():
-    dir = os.path.expanduser("/Users/JDFagan/Repositories/JDFagan/interview-in-python/src/interviewcake/empty/")
-    expected = []
-    assert expected == find_duplicate_files(starting_dir=dir)
+    dir = test_dir
+    expected = [
+        {'__init__.py', 'sub1/__init__.py', 'sub1/empty'},
+        {'ha.py', 'ha.txt', 'sub1/hehe.txt'},
+        ]
+    assert find_duplicate_files(starting_dir=dir) == expected
