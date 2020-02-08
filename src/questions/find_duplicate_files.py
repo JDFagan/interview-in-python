@@ -20,12 +20,13 @@ def find_duplicate_files(starting_dir: str=os.path.abspath(os.curdir)):
     files = {}
     print(f"Finding dupe sets within {starting_dir}")
     for filename in glob.glob('**/*', recursive=True):
-        file_hash = hash_file(filename)
-        print(f"{filename}: {file_hash}")
-        if file_hash in files:
-            files[file_hash].add(filename)
-        else:
-            files[file_hash] = {filename, }
+        if os.path.isfile(filename):
+            file_hash = hash_file(filename)
+            print(f"{filename}: {file_hash}")
+            if file_hash in files:
+                files[file_hash].add(filename)
+            else:
+                files[file_hash] = {filename, }
 
     duplicate_files = {file_hash: duplicates for (file_hash, duplicates) in files.items() if len(duplicates) > 1}
     return duplicate_files
