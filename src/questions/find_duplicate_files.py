@@ -36,14 +36,12 @@ def hash_file(filename):
     # return os.path.getsize(filename)
     with open(filename, "rb") as f:
         hasher = hashlib.md5()
-        block_size = 8192
+        # hasher.update(f.read())
+        block_size = 2**16
         # For Python 3.8+
         # while chunk := f.read(8192):
         chunk = f.read(block_size)
         while len(chunk) > 0:
             hasher.update(chunk)
             chunk = f.read(block_size)
-    # print(hasher.digest())
-    # print(hasher.hexdigest())
-
     return hasher.hexdigest()
