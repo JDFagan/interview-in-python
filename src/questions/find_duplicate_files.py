@@ -6,22 +6,26 @@ import hashlib
 
 def find_duplicate_files(starting_dir: str = os.path.abspath(os.curdir)):
     """
-    Strategy: dups will definitely have same file size and have same hash of its contents.
-    Faster to filter out only files with same file size first before definitively hashing each file since very
-    large files will take quite some time to hash.
+    Insight: dupes will definitely have same file size and have same hash of its contents.
+
+    Strategy: In consideration of very large files potentially within a directory, it will be much faster to first
+    filter out only files with same file size first before obtaining the hash for each duplicate file candidate since
+    very large files will take quite some time to hash.
 
     Time complexity
-    O(n + d*s) which is <= O(2n); ∴ O(n)
+    O(n + S)
+    where
+      - n is number of input files
+      - S is sizes of duplicate files in aggregate
+
+    Space complexity
+    O(n + d)
     where
       - n is number of input files
       - d is number of duplicate files
-      - s is sizes of duplicate files in aggregate
-
-    O(n) time and O(n + d) space (where n in input files and d is number of duplicate files).
 
     :param starting_dir: path as string
-    :return: set of duplicate file sets where each set represents a unique duplicate file shown with the collection of
-    file paths
+    :return: dictionary of unique file hashes where each hash is associated to the set of files that match that hash
     """
     os.chdir(starting_dir)
 
