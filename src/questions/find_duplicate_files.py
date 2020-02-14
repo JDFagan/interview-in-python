@@ -4,7 +4,7 @@ import glob
 import hashlib
 
 
-def find_duplicate_files(starting_dir: str=os.path.abspath(os.curdir)):
+def find_duplicate_files(starting_dir: str = os.path.abspath(os.curdir)):
     """
     Strategy: dups will definitely have same file size and have same hash of its contents.
     Faster to filter out only files with same file size first before definitively hashing each file since very
